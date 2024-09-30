@@ -13,11 +13,12 @@ time.sleep(1)
 
 while True:
     
+    # Enviamos un mensaje #
+    uart.write(mensaje.encode())
+    time.sleep(1) # Esperamos un poco...
+
     if uart.in_waiting > 0:
         # Leemos el mensaje cuando haya algo en el buffer
         data = uart.read(uart.in_waiting).decode()
         print(data)
         
-        # Enviamos un mensaje de vuelta
-        uart.write(mensaje.encode())
-        time.sleep(1)

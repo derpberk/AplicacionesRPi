@@ -6,7 +6,7 @@ import time
 led = DigitalOutputDevice(1)
 
 # Configuramos el dispositivo de entrada digital (Botón) en el pin GPIO 2
-button = DigitalInputDevice(2)
+button = DigitalInputDevice(2, pull_up=True)
 
 # Definimos la función que manejará la interrupción (cambiar el LED)
 def manejar_led():

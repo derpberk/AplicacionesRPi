@@ -8,13 +8,18 @@ led = DigitalOutputDevice(1)
 # Configuramos el dispositivo de entrada digital (Botón) en el pin GPIO 2
 button = DigitalInputDevice(2)
 
-# Definimos la función que manejará la interrupción (encender el LED)
-def encender_led():
-    led.on()
-    print("El LED está encendido")
+# Definimos la función que manejará la interrupción (cambiar el LED)
+def manejar_led():
+    
+    if led.value == 1:
+        led.off()
+        print("El LED está apagado")
+    else:
+        led.on()
+        print("El LED está encendido")
 
 # Detectamos cuando el botón es presionado
-button.when_activated = encender_led
+button.when_activated = manejar_led
 
 # Mantener el script corriendo
 while True:

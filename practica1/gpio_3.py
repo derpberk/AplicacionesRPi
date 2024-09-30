@@ -8,13 +8,17 @@ led = PWMOutputDevice(1, active_high=True, initial_value=0, frequency=1000)
 # Definimos una función para cambiar la intensidad del LED
 def ajustar_intensidad():
     # Ajustamos el ciclo de trabajo a diferentes niveles
-    for i in range(0, 101, 10):
-        led.value = i / 100.0  # Ajustamos el ciclo de trabajo (0.0 a 1.0)
-    print(f"Intensidad del LED: {i}%")
-    sleep(1)
+    while True:
+        
+        for i in range(0, 101, 10):
+            led.value = i / 100.0  # Ajustamos el ciclo de trabajo (0.0 a 1.0)
+            print(f"Intensidad del LED: {i}%")
+            sleep(0.5)
+            
+        for i in range(100, 0, 10):
+            led.value = i / 100.0  # Ajustamos el ciclo de trabajo (1.0 a 0.0)
+            print(f"Intensidad del LED: {i}%")
+            sleep(0.5)
 
 # Llamamos a la función para ajustar la intensidad del LED
 ajustar_intensidad()
-
-# Mantener el script corriendo
-pause()

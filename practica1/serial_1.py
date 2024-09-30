@@ -2,7 +2,7 @@ import serial
 import gpiozero
 
 # Configuramos el puerto serie
-TTY = '/dev/ttyUSB0'  # usb
+TTY = '/dev/ttyACM0'  # usb
 BAUDRATE = 9600
 # Creamos la comunicación: 1 bit de stop, sin paridad
 puerto_serie = serial.Serial(TTY, BAUDRATE)

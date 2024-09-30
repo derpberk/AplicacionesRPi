@@ -1,7 +1,7 @@
 import serial
 import time
 
-TTY = '/dev/ttyAMA0'
+TTY = '/dev/ttyS0'
 BAUDRATE = 9600
 # Creamos la comunicación: 1 bit de stop, sin paridad
 uart = serial.Serial(TTY, BAUDRATE)

@@ -75,7 +75,7 @@ numeros = [UNO, DOS, TRES, CUATRO, CINCO, SEIS]
 
 def dado_loco():
     # Esperamos a que se suelte el joystick
-    sense.wait_for_event(ACTION_PRESSED)
+    sense.stick.wait_for_event(ACTION_PRESSED)
     while True:
         # Encender todos los leds
         sense.set_pixels(random.choice(numeros))

@@ -30,6 +30,6 @@ ax[1].plot(datos_x, datos_y2, 'r-')
 ax[1].set_xlabel('Tiempo (s)')
 ax[1].set_ylabel('Humedad (%)')
 ax[0].set_ylabel('Temperatura (C)')
-plt.title('Datos vs Tiempo')
+ax[0].title('Datos vs Tiempo')
 # Mostamos la gráfica
 plt.show()

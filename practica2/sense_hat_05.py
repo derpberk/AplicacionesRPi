@@ -27,9 +27,9 @@ while t < 20:
 ax[0].plot(datos_x, datos_y, 'b-')
 ax[1].plot(datos_x, datos_y2, 'r-')
 # Añadimos etiquetas
-ax[1].xlabel('Tiempo (s)')
-ax[1].ylabel('Humedad (%)')
-ax[0].ylabel('Temperatura (C)')
+ax[1].set_xlabel('Tiempo (s)')
+ax[1].set_ylabel('Humedad (%)')
+ax[0].set_ylabel('Temperatura (C)')
 plt.title('Datos vs Tiempo')
 # Mostamos la gráfica
 plt.show()

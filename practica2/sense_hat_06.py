@@ -10,7 +10,7 @@ for t in range(100):
     
     # Obtener datos del sensor
     ori = sense.get_orientation()
-    ace = sense.get_accelerometer()
+    ace = sense.get_accelerometer_raw()
     
     # Cada fila se compone de:
     # [1 COL (t) +

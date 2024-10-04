@@ -1,6 +1,6 @@
 import time
 
-from picamera2 import Picamera2
+from picamera2 import Picamera2, Preview
 from picamera2.encoders import Encoder, H264Encoder, Quality
 import gpiozero
 
@@ -14,6 +14,10 @@ video_config = picam2.create_video_configuration(main={"size": (1920, 1080)}, lo
 
 # Ajustamos la resolución y el framerate
 picam2.configure(video_config)
+
+# Iniciamos la vista previa de la cámara
+picam2.start_preview(Preview.QTGL)
+picam2.start()
 
 # Si queremos grabar en formato RAW
 # encoder = Encoder()

@@ -9,11 +9,9 @@ picam2 = Picamera2()
 # Creamos el botón conectado al GPIO1 con pull-up
 button = gpiozero.Button("GPIO1", pull_up=True)
 
-# Creamos una configuración de video
-video_config = picam2.create_video_configuration()
-video_config['resolution'] = (640, 480)
-video_config['framerate'] = 24
-video_config['rotation'] = 180
+picam2 = Picamera2()
+video_config = picam2.create_video_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
+
 # Ajustamos la resolución y el framerate
 picam2.configure(video_config)
 

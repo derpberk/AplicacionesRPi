@@ -21,7 +21,7 @@ centro = (0,0)
 def mouse_callback(event, x, y, flags, param):
     global dibuja_flag, centro, Final
 
-    if event == cv2.EVENT_LBUTTONCLK:
+    if event == cv2.EVENT_LBUTTONDOWN:
         dibuja_flag = True
         centro = (x,y)
     

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Creamos el thread the la ventana de OpenCV
-from picamera2 import PiCamera2
+from PiCamera2 import picamera2
 import time
 import cv2
  

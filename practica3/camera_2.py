@@ -26,6 +26,7 @@ encoder = H264Encoder(10000000)
 button.wait_for_press() # Esperamos a que el botón sea presionado
 print("Grabando video")
 picam2.start_recording(encoder, './video.h264', quality=Quality.HIGH)
+time.sleep(2)
 button.wait_for_press() # Esperamos a que el botón sea presionado
 print("Deteniendo grabación")
 picam2.stop_recording()

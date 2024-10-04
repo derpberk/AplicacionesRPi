@@ -8,7 +8,7 @@ camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, l
 camera.configure(camera_config)
 camera.rotation = 180
 # Iniciamos la vista previa de la cámara
-camera.start_preview(Preview.QTLG)
+camera.start_preview(Preview.QTGL)
 camera.start()
 
 for i in range(1,4):

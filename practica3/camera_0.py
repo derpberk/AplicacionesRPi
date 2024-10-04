@@ -2,7 +2,7 @@ from picamera2 import Picamera2, Preview
 from time import sleep
 
 # Instanciamos la clase PiCamera2
-camera = Picamera2()
+camera = Picamera2(verbose_console=0)
 # Configuramos la resolución y rotación de la cámara
 camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
 camera.configure(camera_config)

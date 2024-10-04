@@ -11,9 +11,9 @@ button = gpiozero.Button("GPIO1", pull_up=True)
 
 # Creamos una configuración de video
 video_config = picam2.create_video_configuration()
-video_config.resolution = (640, 480)
-video_config.framerate = 24
-video_config.rotation = 180
+video_config['resolution'] = (640, 480)
+video_config['framerate'] = 24
+video_config['rotation'] = 180
 # Ajustamos la resolución y el framerate
 picam2.configure(video_config)
 
@@ -25,7 +25,7 @@ encoder = H264Encoder(10000000)
 # Iniciamos la grabación de video
 button.wait_for_press() # Esperamos a que el botón sea presionado
 print("Grabando video")
-picam2.start_recording(encoder, '/home/pi/video.h264', quality=Quality.HIGH)
+picam2.start_recording(encoder, './video.h264', quality=Quality.HIGH)
 button.wait_for_press() # Esperamos a que el botón sea presionado
 print("Deteniendo grabación")
 picam2.stop_recording()

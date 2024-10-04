@@ -29,17 +29,17 @@ while True:
          imagen1=image
          cv2.imshow("A",imagen1)
          time.sleep(3)
-         print("Saca la segunda foto pulsando B")
+         print("Saca la segunda foto pulsando b")
          
     if key == ord("b"): # tomamos la segunda foto
          imagen2=image
          cv2.imshow("B",imagen2)
          time.sleep(3)
-         print("Para mezclarlas, pulsa M")
+         print("Para mezclarlas, pulsa m")
          
     if key == ord("m"): # mezclamos las fotos
         
-         alfa=input("Introduzca porcentaje de mezcla")
+         alfa=input("Introduzca porcentaje de mezcla (%):\n")
          alfa_f = float(alfa)/100.0
          beta = 1.0 - alfa_f
          dst = cv2.addWeighted(imagen1, alfa_f, imagen2, beta, 0)
@@ -51,5 +51,5 @@ while True:
     if key == ord("q"): # para salir 
         break
          
-camera.close()
+picam2.close()
 cv2.destroyAllWindows()

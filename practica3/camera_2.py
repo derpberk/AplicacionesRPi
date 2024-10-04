@@ -4,11 +4,9 @@ from picamera2 import Picamera2, Preview
 from picamera2.encoders import Encoder, H264Encoder, Quality
 import gpiozero
 
-# Instanciamos la clase PiCamera2
-picam2 = Picamera2()
 # Creamos el botón conectado al GPIO1 con pull-up
 button = gpiozero.Button("GPIO1", pull_up=True)
-
+# Instanciamos la clase PiCamera2
 picam2 = Picamera2()
 video_config = picam2.create_video_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
 

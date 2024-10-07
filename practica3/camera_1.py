@@ -10,7 +10,10 @@ button = gpiozero.Button("GPIO1", pull_up=True)
 camera = Picamera2()
 
 # Configuramos la resolución, visualizacion y rotación de la cámara
-camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
+camera_config = camera.create_still_configuration(
+    main={"size": (1920, 1080)}, 
+    lores={"size": (640, 480)}, 
+    display="lores")
 camera_config['transform'] = libcamera.Transform(vflip=True) 
 camera.configure(camera_config)
 # Iniciamos la camara

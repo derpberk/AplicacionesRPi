@@ -3,11 +3,8 @@ import numpy
 import time
 
 sense = SenseHat()
-
 datos = []
-
 for t in range(100):
-    
     # Obtener datos del sensor
     ori = sense.get_orientation()
     ace = sense.get_accelerometer_raw()
@@ -17,17 +14,11 @@ for t in range(100):
     #  3 COLS (orientacion) + 
     #  3 COLS (aceleracion)]
     
-    datos_fila = [t, 
-                  ori['pitch'], 
-                  ori['roll'], 
-                  ori['yaw'], 
-                  ace['x'], 
-                  ace['y'], 
-                  ace['z']]
+    datos_fila = [t, ori['pitch'], ori['roll'],  ori['yaw'], 
+                  ace['x'],  ace['y'], ace['z']]
     
     # Agregar datos a la lista
     datos.append(datos_fila)
-    
     time.sleep(0.1) # Espera 0.1 segundos
     
 # Convertir lista a NumPy array

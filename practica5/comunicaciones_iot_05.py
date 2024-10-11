@@ -27,16 +27,16 @@ html_template = """
 """
 
 # Variable global
-valor_pantalla = 'X'
+valor_actuador = 'X'
 valor_sensor = 0
 
 @app.route('/actuador', methods=['POST'])
 def actuador():
     global valor_actuador, valor_sensor
-    valor_actuador = request.json['valor_pantalla']
+    valor_actuador = request.json['valor_actuador']
     # Actualizar el valor de la pantalla
     sense.show_letter(valor_actuador)
-    return jsonify({'valor_pantalla': valor_pantalla})
+    return jsonify({'valor_actuador': valor_pantalla})
 
     
 @app.route('/sensor', methods=['GET'])
@@ -53,7 +53,7 @@ def home():
     valor_sensor = sense.get_temperature()
     return render_template_string(html_template, 
                                     sensor=valor_sensor, 
-                                    caracter = valor_pantalla)
+                                    caracter = valor_actuador)
 
 if __name__ == '__main__':
 

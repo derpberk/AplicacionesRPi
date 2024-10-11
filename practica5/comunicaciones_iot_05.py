@@ -49,7 +49,8 @@ def sensor():
     
 @app.route('/')
 def home():
-    global valor_actuador
+    global valor_actuador, valor_sensor
+    valor_sensor = sense.get_temperature()
     return render_template_string(html_template, 
                                     sensor=valor_sensor, 
                                     caracter = valor_pantalla)

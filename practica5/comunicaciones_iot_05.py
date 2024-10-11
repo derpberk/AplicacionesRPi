@@ -45,7 +45,8 @@ def sensor():
     # Obtener el valor del sensor
     valor_sensor = sense.get_temperature()
     # Devolver el valor del sensor y el valor del actuador
-    return jsonify({'valor_sensor': valor_sensor})
+    return jsonify({'valor_sensor': valor_sensor, 
+                    'valor_actuador': valor_actuador})
     
 @app.route('/')
 def home():

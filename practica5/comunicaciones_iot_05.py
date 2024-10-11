@@ -2,7 +2,7 @@ from flask import Flask, request, render_template_string, jsonify
 import random
 import sense_hat
 
-sense = sense_hat.SenseHat()
+
 app = Flask(__name__)
 
 # HTML template
@@ -12,7 +12,10 @@ html_template = """
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" 
+        content="width=device-width, 
+        initial-scale=1, 
+        shrink-to-fit=no">
         <title>Actuador</title>
     </head>
     <body>
@@ -29,6 +32,7 @@ html_template = """
 # Variable global
 valor_actuador = 'X'
 valor_sensor = 0
+sense = sense_hat.SenseHat()
 
 @app.route('/actuador', methods=['POST'])
 def actuador():
@@ -57,5 +61,4 @@ def home():
                                     caracter = valor_actuador)
 
 if __name__ == '__main__':
-
-        app.run(host='0.0.0.0', port=5050)
+    app.run(host='0.0.0.0', port=5050)

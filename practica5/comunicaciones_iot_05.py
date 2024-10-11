@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template_string, jsonify
 import random
+import sense_hat
 
+sense = sense_hat.SenseHat()
 app = Flask(__name__)
 
 # HTML template
@@ -15,36 +17,43 @@ html_template = """
     </head>
     <body>
         <div class="container">
-            <h1>Valor del Actuador</h1>
-            <p>      {{ value }}      </p>
+            <h1>Valor del Sensor</h1>
+            <p>      {{ sensor }}      </p>
+            <h1>Valor en pantalla</h1>
+            <p>      {{ caracter }}      </p>
         </div>
     </body>
 </html>
 """
 
 # Variable global
-valor_actuador = 0
+valor_pantalla = 'X'
+valor_sensor = 0
 
-@app.route('/actuador', methods=['POST', 'GET'])
+@app.route('/actuador', methods=['POST'])
 def actuador():
-    global valor_actuador
-    value = request.json['valor_actuador']
-    valor_actuador = value
-    return jsonify({'valor_sensor': value})
+    global valor_actuador, valor_sensor
+    valor_actuador = request.json['valor_pantalla']
+    # Actualizar el valor de la pantalla
+    sense.show_letter(valor_actuador)
+    return jsonify({'valor_pantalla': valor_pantalla})
+
     
 @app.route('/sensor', methods=['GET'])
 def sensor():
-    global valor_actuador
-    # Obtener el valor del sensor (aleatorio)
-    random_value = random.randint(1, 100)
+    global valor_actuador, valor_sensor
+    # Obtener el valor del sensor
+    valor_sensor = sense.get_temperature()
     # Devolver el valor del sensor y el valor del actuador
-    return jsonify({'valor_sensor': random_value, 
-                    'valor_actuador': valor_actuador})
+    return jsonify({'valor_sensor': valor_sensor})
     
 @app.route('/')
 def home():
     global valor_actuador
-    return render_template_string(html_template, value=valor_actuador)
+    return render_template_string(html_template, 
+                                    sensor=valor_sensor, 
+                                    caracter = valor_pantalla)
 
 if __name__ == '__main__':
+
         app.run(host='0.0.0.0', port=5050)

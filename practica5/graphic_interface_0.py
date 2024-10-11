@@ -19,6 +19,10 @@ def rotar():
 def imprimir():
     sense.show_letter(caja_texto.get()[0])
     print(caja_texto.get())
+
+
+def salir():
+    exit()
     
 # Creamos la ventana principal 
 ventana = tk.Tk()
@@ -36,7 +40,7 @@ boton_imprimir = tk.Button(ventana, text="Imprimir", command=imprimir)
 boton_imprimir.place(x=100, y=100)
 
 # Creamos un botón peuqeñopara salir
-boton_salir= tk.Button(ventana, text="X", command=exit(), bg="red", fg="white")
+boton_salir= tk.Button(ventana, text="X", command=salir, bg="red", fg="white")
 boton_salir.place(x=5, y=100)
 
 # Creamos la caja de texto

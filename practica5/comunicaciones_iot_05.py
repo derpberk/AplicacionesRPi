@@ -36,7 +36,7 @@ def actuador():
     valor_actuador = request.json['valor_actuador']
     # Actualizar el valor de la pantalla
     sense.show_letter(valor_actuador)
-    return jsonify({'valor_actuador': valor_pantalla})
+    return jsonify({'valor_actuador': valor_actuador})
 
     
 @app.route('/sensor', methods=['GET'])

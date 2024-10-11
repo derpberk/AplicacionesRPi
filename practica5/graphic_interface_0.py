@@ -9,8 +9,11 @@ def limpiar():
     sense.clear()
     print("Encendido")
 
+angle = 0
 def rotar():
-    sense.flip_v()
+    angle += 90
+    angle = angle % 360
+    sense.set_rotation(angle)
     print("Apagado")
     
 def imprimir():

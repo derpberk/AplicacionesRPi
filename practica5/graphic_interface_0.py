@@ -17,13 +17,13 @@ def rotar():
     print("Apagado")
     
 def imprimir():
-    sense.show_message(caja_texto.get())
+    sense.show_letter(caja_texto.get()[0])
     print(caja_texto.get())
     
 # Creamos la ventana principal 
 ventana = tk.Tk()
 ventana.geometry("300x200")
-ventana.title("Control de LED")
+ventana.title("Control de pantalla")
 
 # Creamos los botones
 boton_encender = tk.Button(ventana, text="Limpiar", command=limpiar)
@@ -34,6 +34,10 @@ boton_apagar.place(x=150, y=50)
 # Creamos un botón para imprimir el mensaje
 boton_imprimir = tk.Button(ventana, text="Imprimir", command=imprimir)
 boton_imprimir.place(x=100, y=100)
+
+# Creamos un botón peuqeñopara salir
+boton_salir= tk.Button(ventana, text="X", command=exit(), bg="red", fg="white")
+boton_salir.place(x=5, y=100)
 
 # Creamos la caja de texto
 caja_texto = tk.Entry(ventana)

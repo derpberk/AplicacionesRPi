@@ -41,7 +41,7 @@ boton_imprimir.place(x=100, y=100)
 
 # Creamos un botón peuqeñopara salir
 boton_salir= tk.Button(ventana, text="X", command=salir, bg="red", fg="white")
-boton_salir.place(x=5, y=100)
+boton_salir.place(x=100, y=5)
 
 # Creamos la caja de texto
 caja_texto = tk.Entry(ventana)

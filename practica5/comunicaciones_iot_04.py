@@ -20,7 +20,7 @@ while True:
     
     if t % 5 == 0:
         # Actualizar el valor del actuador
-        nuevo_valor = int(input("Introduce el nuevo valor del actuador: "))
+        nuevo_valor = input("Introduce el nuevo valor del actuador: ")
         response = requests.post(url_actuador, json={'valor_actuador': nuevo_valor})
         print(f"Valor del actuador actualizado a {nuevo_valor}")
         

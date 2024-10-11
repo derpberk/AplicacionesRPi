@@ -1,20 +1,16 @@
 import tkinter as tk
-import gpiozero
 from sense_hat import SenseHat
-
-# Creamos el objeto LED
-led = gpiozero.DigitalOutputDevice("GPIO1")
 
 # Instanciamos el SenseHat
 sense = SenseHat()
 
 # Creamos el botón de encendido
-def encender():
-    led.on()
+def limpiar():
+    sense.clear()
     print("Encendido")
 
-def apagar():
-    led.off()
+def rotar():
+    sense.flip_v()
     print("Apagado")
     
 def imprimir():
@@ -27,9 +23,9 @@ ventana.geometry("300x200")
 ventana.title("Control de LED")
 
 # Creamos los botones
-boton_encender = tk.Button(ventana, text="Encender", command=encender)
+boton_encender = tk.Button(ventana, text="Limpiar", command=limpiar)
 boton_encender.place(x=50, y=50)
-boton_apagar = tk.Button(ventana, text="Apagar", command=apagar)
+boton_apagar = tk.Button(ventana, text="Rotar", command=rotar)
 boton_apagar.place(x=150, y=50)
 
 # Creamos un botón para imprimir el mensaje

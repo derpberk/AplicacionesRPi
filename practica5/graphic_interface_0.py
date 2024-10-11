@@ -11,6 +11,7 @@ def limpiar():
 
 angle = 0
 def rotar():
+    global angle
     angle += 90
     angle = angle % 360
     sense.set_rotation(angle)

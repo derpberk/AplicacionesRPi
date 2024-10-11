@@ -6,15 +6,16 @@ app = Flask(__name__)
 valor_actuador = 0
 
 @app.route('/sensor', methods=['GET'])
-def get_random_value():
+def get_sensor():
+    global valor_actuador   
     # Obtener el valor del sensor (aleatorio)
     random_value = random.randint(1, 100)
     # Devolver el valor del sensor y el valor del actuador
     return jsonify({'valor_sensor': random_value, 
                     'valor_actuador': valor_actuador})
 
-@app.route('/actuador', methods=['POST', 'GET'])
-def update_random_value():
+@app.route('/actuador', methods=['POST'])
+def update_actuador():
     global valor_actuador
     # Actualizar el valor del actuador
     valor_actuador = request.json['valor_actuador']

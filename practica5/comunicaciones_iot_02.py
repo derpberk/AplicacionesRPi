@@ -12,6 +12,8 @@ def on_message(client, userdata, message):
 cliente_mqtt = client.Client()
 # Conectar al broker
 cliente_mqtt.connect(broker_address, port, 60)
+# Asociamos la función de callback al evento on_message
+cliente_mqtt.on_message = on_message
 
 # Nos suscribimos al topic
 topic = "/etsi/practicas/valor0"

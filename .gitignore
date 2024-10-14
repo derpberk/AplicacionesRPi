@@ -165,3 +165,6 @@ cython_debug/
 practica_opcional_6/data/
 practica_opcional_7/data/
 .DS_Store
+practica_opcional_6/modelo_GTSRB.pt
+practica_opcional_6/modelo.pt
+practica_opcional_7/modelo_GTSRB.pt

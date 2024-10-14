@@ -23,8 +23,6 @@ picam2.start()
 
 # Cargamos el clasificador de Haar
 frontal_cascade = cv2.CascadeClassifier('haar_filters/haarcascade_frontalface_default.xml')
-laterales_cascade = cv2.CascadeClassifier('haar_filters/haarcascade_profileface.xml')
-
 
 while True:
     # Capturamos un frame

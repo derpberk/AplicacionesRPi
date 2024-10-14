@@ -10,11 +10,11 @@ topic = "/etsi/practicas/valor0"
 client_id = "mqtt_client_sensor"
 
 # Crear instancia del cliente MQTT
-client = client.Client(client_id)
+cliente_mqtt = client.Client(client_id)
 # Conectar al broker
-client.connect(broker, port, 60)
+cliente_mqtt.connect(broker, port, 60)
 # Iniciar el loop en segundo plano
-client.loop_start()
+cliente_mqtt.loop_start()
 
 #Creamos el objeto SenseHat
 sense = sense_hat.SenseHat()
@@ -23,13 +23,13 @@ try:
     while True:
         # Publicar mensaje al topic
         mensaje = sense.get_temperature()
-        client.publish(topic, mensaje)
+        cliente_mqtt.publish(topic, mensaje)
         print(f"Mensaje enviado: {mensaje}")
         time.sleep(1)
         
 except KeyboardInterrupt:
     print("Desconectando del broker MQTT...")
-    client.loop_stop()
-    client.disconnect()
+    cliente_mqtt.loop_stop()
+    cliente_mqtt.disconnect()
 
     

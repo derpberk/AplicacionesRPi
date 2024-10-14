@@ -29,11 +29,11 @@ def nothing(x):
 
 # Creamos los deslizadores
 cv2.createTrackbar("Hue Min", "Deslizadores", 0, 255, nothing)
-cv2.createTrackbar("Hue Max", "Deslizadores", 0, 255, nothing)
+cv2.createTrackbar("Hue Max", "Deslizadores", 255, 255, nothing)
 cv2.createTrackbar("Sat Min", "Deslizadores", 0, 255, nothing)
-cv2.createTrackbar("Sat Max", "Deslizadores", 0, 255, nothing)
+cv2.createTrackbar("Sat Max", "Deslizadores", 255, 255, nothing)
 cv2.createTrackbar("Val Min", "Deslizadores", 0, 255, nothing)
-cv2.createTrackbar("Val Max", "Deslizadores", 0, 255, nothing)
+cv2.createTrackbar("Val Max", "Deslizadores", 255, 255, nothing)
 
 while True:
     
@@ -64,4 +64,6 @@ while True:
     if key == ord('q'):
         break
 
-
+# Liberamos la cámara y cerramos la ventana
+picam2.stop()
+cv2.destroyAllWindows()

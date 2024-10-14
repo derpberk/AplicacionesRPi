@@ -65,3 +65,7 @@ while True:
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
         break
+    
+# Liberamos la cámara y cerramos la ventana
+picam2.stop()
+cv2.destroyAllWindows()

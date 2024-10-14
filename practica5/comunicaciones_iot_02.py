@@ -12,8 +12,6 @@ def on_message(client, userdata, message):
 cliente_mqtt = client.Client()
 # Conectar al broker
 cliente_mqtt.connect(broker_address, port, 60)
-# Iniciar el loop en segundo plano
-cliente_mqtt.loop_start()
 
 # Nos suscribimos al topic
 topic = "/etsi/practicas/valor0"

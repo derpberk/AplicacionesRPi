@@ -30,27 +30,31 @@ while True:
     key = cv2.waitKey(1) & 0xFF
  	
     if key == ord("a"): # tomamos la primera foto
-         imagen1=image
-         cv2.imshow("A",imagen1)
-         time.sleep(3)
-         print("Saca la segunda foto pulsando b")
+          imagen1=image
+          cv2.imshow("A",imagen1)
+          time.sleep(3)
+          print("Saca la segunda foto pulsando b")
          
     if key == ord("b"): # tomamos la segunda foto
-         imagen2=image
-         cv2.imshow("B",imagen2)
-         time.sleep(3)
-         print("Para mezclarlas, pulsa m")
+          imagen2=image
+          cv2.imshow("B",imagen2)
+          time.sleep(3)
+          print("Para mezclarlas, pulsa m")
          
     if key == ord("m"): # mezclamos las fotos
-        
-         alfa=input("Introduzca porcentaje de mezcla (%):\n")
-         alfa_f = float(alfa)/100.0
-         beta = 1.0 - alfa_f
-         dst = cv2.addWeighted(imagen1, alfa_f, imagen2, beta, 0)
-         cv2.imshow("BLEND", dst)
-         print("Mezcla al %s" %alfa)
-         time.sleep(3)
-         print("Para salir, pulsa q")
+
+          try:
+               alfa = input("Introduzca porcentaje de mezcla (0.0 - 100.0%):\n")
+               alfa_f = float(alfa)/100.0
+               beta = 1.0 - alfa_f
+               dst = cv2.addWeighted(imagen1, alfa_f, imagen2, beta, 0)
+               cv2.imshow("BLEND", dst)
+               print("Mezcla al %s" %alfa)
+               time.sleep(3)
+               print("Para salir, pulsa q")
+          except:
+               print("Error")
+               break
          
     if key == ord("q"): # para salir 
         break

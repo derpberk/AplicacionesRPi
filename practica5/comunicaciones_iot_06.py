@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import thingspeak
 import time
 import random

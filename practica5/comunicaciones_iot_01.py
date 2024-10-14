@@ -1,5 +1,5 @@
 import time
-import paho.mqtt.client as mqtt
+from paho.mqtt import client 
 import random
 import sense_hat
 
@@ -10,7 +10,7 @@ topic = "/etsi/practicas/valor0"
 client_id = "mqtt_client_sensor"
 
 # Crear instancia del cliente MQTT
-client = mqtt.Client(client_id)
+client = client.Client(client_id)
 # Conectar al broker
 client.connect(broker, port, 60)
 # Iniciar el loop en segundo plano

@@ -42,7 +42,7 @@ while True:
     if len(frames) == N:
         # V(t) = || I(t-N) - I(t) ||
         diff = cv2.absdiff(frames[N-1], frames[0])
-        diff = cv2.medianBlur(diff, 5)
+        diff = cv2.medianBlur(diff, 5) # Aplicamos un filtro de mediana de radio 5
         # Tomamos la mascara de movimiento con un umbral
         threshold_method = cv2.THRESH_BINARY
         ret, motion_mask = cv2.threshold(diff, THRESH, 255, threshold_method)

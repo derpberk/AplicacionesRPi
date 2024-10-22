@@ -22,9 +22,7 @@ else:
 
 # Cargamos los datos. En este caso, MNIST.
 # Transformamos las imágenes a tensores
-transform = transforms.Compose([transforms.ToTensor(),
-                                transforms.Resize((32, 32)),
-                                transforms.Grayscale(num_output_channels=1)])
+transform = transforms.Compose([transforms.ToTensor(), transforms.Resize((32, 32)), transforms.Grayscale(num_output_channels=1)])
 # Descargamos el dataset
 train_dataset = datasets.GTSRB(root="./data", download=True, split="train", transform=transform)
 
@@ -32,7 +30,7 @@ train_dataset = datasets.GTSRB(root="./data", download=True, split="train", tran
 tamaño_dataset = len(train_dataset)
 tamaño_train = int(0.8 * tamaño_dataset)
 tamaño_val = (tamaño_dataset - tamaño_train)
-train_subset, val_subset = torch.utils.data.random_split(train_dataset, [tamaño_train, tamaño_val], generator=torch.Generator().manual_seed(1))
+train_subset, val_subset = torch.utils.data.random_split(train_dataset, [tamaño_train,tamaño_val], generator=torch.Generator().manual_seed(1))
 # Creamos los dataloaders
 train_loader = DataLoader(train_subset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_subset, batch_size=32, shuffle=True)

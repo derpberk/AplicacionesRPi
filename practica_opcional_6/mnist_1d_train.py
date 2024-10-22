@@ -7,7 +7,6 @@ from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import accuracy_score
-from red_convolucional import ConvolutionalImageClassifier
 
 # Seleccionamos el device (GPU, CPU o MPS)
 if torch.cuda.is_available():
@@ -44,7 +43,13 @@ train_loader = DataLoader(train_subset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_subset, batch_size=32, shuffle=True)
 
 # Creamos la red neuronal de forma secuencial
-modelo = ConvolutionalImageClassifier(n_classes=10).to(device)
+modelo = torch.nn.Sequential()
+modelo.append(nn.Flatten()) # Aplanamos la imagen (28x28) a un vector (784)
+modelo.append(nn.Linear(784, 128)) # Capa lineal con 128 neuronas
+modelo.append(nn.ReLU()) # Función de activación ReLU
+modelo.append(nn.Linear(128, 10)) # Capa lineal con 10 neuronas (una por cada clase)
+modelo = modelo.to(device) # Movemos el modelo a la GPU
+
 # Creamos el optimizador (SGD) y la función de pérdida
 optimizer = SGD(modelo.parameters(), lr=0.001)
 loss_fn = nn.CrossEntropyLoss()
@@ -104,7 +109,7 @@ for epoch in range(10):  # Entrenamos durante 10 épocas
 	epoch_acc_val.append(np.mean(acc_val))
 	
 # Guardamos el modelo final
-torch.save(modelo.state_dict(), 'modelo_conv.pt')
+torch.save(modelo.state_dict(), 'modelo_1D.pt')
 
 # Representamos el loss:
 with plt.style.context('bmh'):
@@ -114,7 +119,7 @@ with plt.style.context('bmh'):
 	plt.xlabel("Epoch")
 	plt.ylabel("Loss")
 	plt.legend()
-	plt.savefig("loss_conv.png")
+	plt.savefig("loss_1D.png")
 	plt.show()
 
 # Representamos el accuracy:
@@ -125,7 +130,7 @@ with plt.style.context('bmh'):
 	plt.xlabel("Epoch")
 	plt.ylabel("Accuracy")
 	plt.legend()
-	plt.savefig("accuracy_conv.png")
+	plt.savefig("accuracy_1D.png")
 	plt.show()
 
 # Matri

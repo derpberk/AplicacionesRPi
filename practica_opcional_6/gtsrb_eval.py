@@ -22,13 +22,20 @@ transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Resize((32, 32)),
                                 transforms.Grayscale(num_output_channels=1)])
 # Descargamos el dataset de test
-test_dataset = datasets.GTSRB(root="./data", download=True, split='test', transform=transform)
+test_dataset = datasets.GTSRB(root="./data", download=False, split='test', transform=transform)
 # Creamos un DataLoader para el dataset de test
 test_loader = DataLoader(test_dataset, batch_size=32, shuffle=True)
 
 # Cargamos las clases
 with open('labels_gtsrb.txt') as json_file:
     classes = json.load(json_file)
+    
+# Visualizamos una imagen
+image, label = test_dataset[20] # Tomamos el dato 20
+print(image.shape) # (1, 32, 32)
+plt.imshow(image[0].numpy(), cmap='gray')
+plt.title(classes[label])
+plt.show()
 
 # Cargamos el modelo
 modelo = ConvolutionalImageClassifier(n_classes=42).to(device)

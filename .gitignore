@@ -168,3 +168,5 @@ practica_opcional_7/data/
 practica_opcional_6/modelo_GTSRB.pt
 practica_opcional_6/modelo.pt
 practica_opcional_7/modelo_GTSRB.pt
+data/*
+*.pt

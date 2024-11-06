@@ -15,7 +15,7 @@ def ajustar_intensidad():
             print(f"Intensidad del LED: {i}%")
             sleep(0.5)
             
-        for i in range(100, 0, 10):
+        for i in range(100, 0, -10):
             led.value = i / 100.0  # Ajustamos el ciclo de trabajo (1.0 a 0.0)
             print(f"Intensidad del LED: {i}%")
             sleep(0.5)

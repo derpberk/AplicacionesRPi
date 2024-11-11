@@ -39,9 +39,10 @@ val_loader = DataLoader(val_subset, batch_size=32, shuffle=True)
 fig, ax = plt.subplots(3, 3, figsize=(10, 10))
 for i in range(3):
     for j in range(3):
-        image = train_dataset[i*3 + j][0].moveaxis(0, -1)
+        indice = np.random.randint(0, len(train_dataset))
+        image = train_dataset[indice][0].moveaxis(0, -1)
         ax[i, j].imshow(image, cmap='gray')
-        ax[i, j].set_title(train_dataset[i*3 + j][1])
+        ax[i, j].set_title(train_dataset[indice][1])
         ax[i, j].axis('off')
         
 plt.show()

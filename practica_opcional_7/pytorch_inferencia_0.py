@@ -13,15 +13,15 @@ warnings.filterwarnings("ignore")
 # Habilitamos el cuantificador #
 torch.backends.quantized.engine = 'qnnpack'
 
+net = models.quantization.mobilenet_v2(pretrained=True, quantize=True)
+# Just In Time script
+net = torch.jit.script(net)
+
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Resize((224,224)),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
-
-net = models.quantization.mobilenet_v2(pretrained=True, quantize=True)
-# Just In Case script
-net = torch.jit.script(net)
 
 # Cargamos la imagen
 image = Image.open('gato.jpg')
